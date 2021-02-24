@@ -1,14 +1,19 @@
 import Layout from '../../components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts'
+import Head from 'next/head'
+import Date from '../../components/date'
 
 export default function Post({ postData }) {
   return (
     <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
       {postData.title}
       <br />
       {postData.id}
       <br />
-      {postData.date}
+      <Date dateString={postData.date} />
       <br />
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </Layout>
@@ -17,9 +22,7 @@ export default function Post({ postData }) {
 
 // どんなページをを表示させるのか、ビルド時に準備しておくべきファイル
 export async function getStaticPaths() {
-  console.log('hoge')
   const paths = getAllPostIds()
-  console.log('getStaticPaths', paths)
   return {
     paths,
     // 404を返す
