@@ -1,5 +1,5 @@
 ---
-title: 'When to Use Static Generation v.s. Server-side Rendering'
+title: 静的ジェネレーション v.s. サーバーサイドレンダリング'
 date: '2020-01-02'
 ---
 
